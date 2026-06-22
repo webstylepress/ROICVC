@@ -1,0 +1,44 @@
+/*
+ * style.css – Custom styles for the ROI Calculator
+ * Enhances Tailwind with subtle transitions, number input tweaks, etc.
+ */
+
+/* Remove number input spinners for a cleaner look */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Smooth transitions on result cards */
+.result-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.result-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Pulse animation when results update */
+@keyframes fadePulse {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+.result-updating {
+  animation: fadePulse 0.4s ease;
+}
+
+/* Custom range/select styling */
+select, input[type="number"] {
+  cursor: pointer;
+}
+
+/* Focus ring override for better contrast */
+input:focus, select:focus {
+  outline: none;
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgba(59, 130, 246, 0.5);
+}
